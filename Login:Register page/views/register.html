@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+
+<h1>{{title}}</h1>
+
+
+<h2>{{registertext}}</h2>
+
+
+<form method="POST" action="{% call url '/users/register' %}">
+
+    {{msg}}
+
+    <br/>
+
+    <div>
+        <label>First Name </label>
+        <input type="text" name="firstname" id="firstname">
+    </div>
+    <br/>
+
+    <div>
+        <label>Last Name </label>
+        <input type="text" name="lastname" id="lastname">
+    </div>
+    <br/>
+
+
+    <div>
+        <label>Email Address</label>
+        <input type="text" name="email" id="email">
+    </div>
+    <br/>
+
+
+    <div>
+        <label>Phone Number</label>
+        <input type="text" name="phonenumber" id="phonenumber">
+    </div>
+    <br/>
+
+    <div>
+        <label>Username</label>
+        <input type="text" name="username" id="username">
+    </div>
+    <br/>
+
+    <div>
+        <label>Password</label>
+        <input type="password" name="password" id="password">
+    </div>
+    <br/>
+    <button type="submit" name="submit" id="submit">
+        Submit Now
+    </button>
+
+</form>
+
+
+
+</body>
+</html>
