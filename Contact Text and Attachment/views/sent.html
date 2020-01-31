@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+
+<h1>{{title}}</h1>
+
+<h2>{{text}}</h2>
+
+<form method="POST" action="{% call url '/contact' %}">
+
+    {{msg}}
+    <br/>
+    <div>
+        <label>Full Name</label>
+        <input type="text" name="fullname" id="fullname">
+    </div>
+    <br/>
+    <div>
+        <label>Email Address </label>
+        <input type="text" name="email" id="email">
+    </div>
+    <br/>
+
+
+    <div>
+        <label>Subject </label>
+        <input type="text" name="subject" id="subject">
+    </div>
+    <br/>
+    <div>
+        <label>Message</label>
+        <textarea type="text" name="message" id="message"></textarea>
+    </div>
+    <br/>
+    <button type="submit" name="submit" id="submit">
+        Submit Now
+    </button>
+
+</form>
+
+</body>
+</html>
