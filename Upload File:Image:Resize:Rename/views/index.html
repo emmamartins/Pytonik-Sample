@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+        
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title> {{title}}</title>
+        
+</head>
+<body>
+<h1> {{title}}</h1>
+
+<a href="{% call url '/upload/'%}">Upload File</a>
+|
+<a href="{% call url '/upload/image'%}">Upload Image</a>
+|
+<a href="{% call url '/upload/resize'%}">Upload and Resize Image</a>
+|
+<a href="{% call url '/upload/rename'%}">Upload Resize and Rename Image</a>
+
+<h2>{{note}}</h2>
+
+</body>
+</html>
+        

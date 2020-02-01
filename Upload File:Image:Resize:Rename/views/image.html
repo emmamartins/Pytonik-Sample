@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+
+<h1>{{title}}</h1>
+
+<h2>{{text}}</h2>
+
+<form method="POST" enctype="multipart/form-data" action="{% call url '/upload/image' %}">
+
+    {{msg}}
+    <br/>
+    <div>
+        <label>Upload Image</label>
+        <input type="file" name="uploadimage" id="uploadimage">
+    </div>
+    <br/>
+    <button type="submit" name="submit" id="submit">
+        Submit Now
+    </button>
+
+</form>
+
+</body>
+</html>
