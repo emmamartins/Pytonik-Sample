@@ -40,6 +40,32 @@ def index(Request):
 
     m.views('upload', data)
 
+def multiple(Request):
+     
+    msg = ""
+    if Request.method == "POST":
+        upload_dir = upload_dir = Helpers.mvc_dir('public/uploads/file/multiple')
+        multifileupload = Request.file('uploadfile')
+        for fileupload in multifileupload:
+            if fileupload.filename != "":
+                response = file.upload(fileupload, upload_dir)
+                if response == True:
+                    msg = "File Upload Successfully "
+                else:
+                    msg = "Unable to Upload file "
+
+
+
+    data = {
+
+        'title' : 'Upload Controller',
+        'text': 'Welcome to My pytonik Multiple Upload File Page',
+        'msg' : msg
+    }
+
+    m.views('multiple', data)
+
+
 
 def image(Request):
   

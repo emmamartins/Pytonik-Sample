@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+
+<h1>{{title}}</h1>
+
+<h2>{{text}}</h2>
+
+<form method="POST" enctype="multipart/form-data" action="{% call url '/upload/multiple' %}">
+
+    {{msg}}
+    <br/>
+    <div>
+        <label>Upload File 1</label>
+        <input type="file" name="uploadfile" id="uploadfile">
+    </div>
+    <br/>
+    <div>
+        <label>Upload File 2</label>
+        <input type="file" name="uploadfile" id="uploadfile">
+    </div>
+    <br/>
+
+    <div>
+        <label>Upload File 3</label>
+        <input type="file" name="uploadfile" id="uploadfile">
+    </div>
+    <br/>
+
+    <div>
+        <label>Upload File 4</label>
+        <input type="file" name="uploadfile" id="uploadfile">
+    </div>
+   
+    <br/>
+    <button type="submit" name="submit" id="submit">
+        Submit Now
+    </button>
+
+</form>
+
+</body>
+</html>
