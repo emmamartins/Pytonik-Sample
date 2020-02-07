@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+
+
+    <style>
+        .cartdiv {
+
+            border: 1px solid #888;
+            width: 150px;
+            height-min: 150px;
+            float: left;
+            margin: 1px 4px 2px 2px;
+
+        }
+        .cartcontent{
+            padding: 0.1em;
+            text-align: center;
+        }
+        .btncart{
+
+            border: 1px solid #2e6bb4;
+            background: #2e6bb4;
+            padding: 0.5em;
+            cursor: pointer;
+            font-size: 12px;
+            color: #fff;
+        }  .cartremove{
+
+            border: 1px solid #a20924;
+            background: #a20924;
+            padding: 0.5em;
+            width: 100%;
+            font-size: 12px;
+            text-decoration: none;
+            cursor: pointer;
+            color: #fff;
+        }
+        .price{
+            color: #1fa77a;
+        }
+        .cartlable{
+            color: #2e6bb4;
+            font-size: 15px;
+            float: right;
+            margin-right: 15em;
+        }
+        tr > td {
+    padding: 0.2em;
+    border: 1px solid #999898;
+
+} tr > th {
+    padding: 0.2em;
+    border: 1px solid
+    #999898;
+
+}
+        table{
+    border: 1px solid
+    #999898;
+}
+    </style>
+</head>
+<body>
+<h1>{{note}}</h1>
+
+{% if cartcount > 0 %}
+<a href="{% call url '/cart/delete/id/all' %}" class="cartremove">Remove All</a>
+
+<p></p>
+
+<table>
+
+    <tr>
+        <th>
+        </th>
+        <th>
+            Item Name
+        </th>
+          <th>
+            Quantity
+        </th>
+          <th>
+           Price
+        </th>
+          <th>
+            Total
+        </th>
+          <th>
+            Action
+        </th>
+
+    </tr>
+
+
+
+        {% each items %}
+
+        <form method="post" action="{% call url 'cart/update' %}">
+        <tr>
+        <td><input type="checkbox" name="id" value="{{it.id}}" />
+        <input type="hidden" name="idv" value="{{it.id}}" />
+        </td>
+        <td>{{it.name}}</td>
+        <td><input type="number" name="quantityv" value="{{it.quantity}}" /></td>
+        <td>{{it.currency}} {{it.price}}</td>
+        <td>{{it.currency}} {% call count 'format' number='{{it.price}}*{{it.quantity}}' %}</td>
+
+        <td><button type="submit" class="btncart">Update</button> <a href="{% call url '/cart/delete/id/{{it.id}}' %}" class="cartremove">Remove</a></td>
+        </tr>
+        </form>
+        {% endeach %}
+
+</table>
+
+{% else %}
+<h2>No Item added to Cart</h2>
+<a href="{% call url '/' %}" class="btncart">Click Here</a>
+
+{% endif %}
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+
+    <style>
+        .cartdiv {
+
+            border: 1px solid #888;
+            width: 150px;
+            height-min: 150px;
+            float: left;
+            margin: 1px 4px 2px 2px;
+
+        }
+        .cartcontent{
+            padding: 0.1em;
+            text-align: center;
+        }
+        .btncart{
+
+            border: 1px solid #2e6bb4;
+            background: #2e6bb4;
+            padding: 0.5em;
+            width: 100%;
+            cursor: pointer;
+            color: #fff;
+        }
+        .price{
+            color: #1fa77a;
+        }
+        .cartlable{
+            color: #2e6bb4;
+            font-size: 15px;
+            float: right;
+            margin-right: 15em;
+        }
+    </style>
+</head>
+<body>
+
+<h2>{{note}}        <a class="cartlable" href="{% call url '/cart'%}"> Cart [{{cartcount}}] </a></h2>
+
+
+{{msg}}
+<br/>
+{% each items %}
+<form action="?action=add&id={{it.id}}" method="post">
+<div class="cartdiv">
+    <div class="cartcontent">
+
+        <h2>{{it.name}}</h2>
+        <h3 class="price">{{it.currency}} {{it.price}}</h3>
+        <label>
+            Enter Quantity:
+            <input type="number" name="vquantity" value="1">
+        </label>
+        <h6>Available Quantity {{it.quantity}}</h6>
+        <input type="hidden" name="price" value="{{it.price}}">
+        <input type="hidden" name="name" value="{{it.name}}">
+        <input type="hidden" name="vid" value="{{it.id}}">
+        <input type="hidden" name="currency" value="{{it.currency}}">
+        <input type="hidden" name="quantity" value="{{it.quantity}}">
+    </div>
+    <button type="submit" class="btncart">Add to Cart</button>
+</div>
+       </form>
+{% endeach %}
+
+</body>
+</html>
