@@ -1,10 +1,11 @@
-from pytonik.Web import App
+from pytonik.Web import App, Load
 from pytonik.Session import Session
 from pytonik.Request import Request as Req
 
 m = App()
 s = Session()
-        
+Cart = Load('Cart')
+
 def index(Request):
   #m.header()
   msg =""
@@ -28,7 +29,7 @@ def index(Request):
 
           if s.get('shopping_cart') is not "":
 
-              if id not in s.find('shopping_cart', 'id'):
+              if id not in Cart.find('shopping_cart', 'id'):
 
                     items_dict = {
                         'id': id,

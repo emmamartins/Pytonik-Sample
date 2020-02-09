@@ -3,13 +3,13 @@
 # Maintainer By: Emmanuel Martins
 # Maintainer Email: emmamartinscm@gmail.com
 # Created by BetaCodings on 2/6/20.
-from pytonik.Web import App, url
+from pytonik.Web import App, url, Load
 from pytonik.Session import Session
 
 
 m = App()
 s = Session()
-
+Cart = Load('Cart')
 def index():
   msg =""
 
@@ -31,9 +31,9 @@ def delete(Request):
 
     if Request.params('id') is not "":
         if Request.params('id') == "all":
-            response = s.delete('shopping_cart', 'id')
+            response = Cart.delete('shopping_cart', 'id')
         else:
-            response = s.delete('shopping_cart', 'id', Request.params('id'))
+            response = Cart.delete('shopping_cart', 'id', Request.params('id'))
         if response is True:
             m.redirect(url('/cart/'))
             m.header()
@@ -48,7 +48,7 @@ def update(Request):
         vquantity = Request.post('quantityv')
         upitem = {'quantity': vquantity}
 
-        response = s.update('shopping_cart', "id", vid, upitem)
+        response = Cart.update('shopping_cart', "id", vid, upitem)
         if response is True:
             m.redirect(url('/cart/'))
             m.header()
